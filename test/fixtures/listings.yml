@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_id: MyString
+  post_time: 2014-08-15 22:41:29
+  update_time: 2014-08-15 22:41:29
+  contact_name: MyString
+  contact_method: MyString
+  contact_phone: MyString
+  contact_email: MyString
+  title: MyString
+  body: MyText
+  price: 9.99
+  region: MyString
+  address: MyString
+  longitude: 9.99
+  latitude: 9.99
+  category: MyString
+  subcategory: MyString
+  area: MyString
+
+two:
+  post_id: MyString
+  post_time: 2014-08-15 22:41:29
+  update_time: 2014-08-15 22:41:29
+  contact_name: MyString
+  contact_method: MyString
+  contact_phone: MyString
+  contact_email: MyString
+  title: MyString
+  body: MyText
+  price: 9.99
+  region: MyString
+  address: MyString
+  longitude: 9.99
+  latitude: 9.99
+  category: MyString
+  subcategory: MyString
+  area: MyString
