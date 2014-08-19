@@ -9,4 +9,24 @@ class Listing < ActiveRecord::Base
   validates :contact_email, allow_blank: true, format: {
     with: %r{\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z}i,
   }
+
+  has_many :hit_lists
+  has_many :filters, through: :hit_lists
+
+  scope :active, -> (active) { where active: active }
+  scope :title, -> (keyword) { where("title like ?", "%#{keyword}%")}
+
+  class << self
+    def apply(filter)
+      hits = Listing.active(true).title(filter.keywords)
+      filter.listings << hits
+    end
+
+    def case_insensitive_title(keywords)
+      keywords.split(', ').each do |keyword|
+        s = keyword.singularize
+        p = keyword.pluralize
+      end
+    end
+  end
 end

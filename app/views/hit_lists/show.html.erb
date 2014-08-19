@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Listing:</strong>
+  <%= @hit_list.listing %>
+</p>
+
+<p>
+  <strong>Filter:</strong>
+  <%= @hit_list.filter %>
+</p>
+
+<%= link_to 'Edit', edit_hit_list_path(@hit_list) %> |
+<%= link_to 'Back', hit_lists_path %>

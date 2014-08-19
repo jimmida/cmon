@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @filter.keywords %>
+</p>
+
+<p>
+  <strong>Price Low:</strong>
+  <%= @filter.price_low %>
+</p>
+
+<p>
+  <strong>Price High:</strong>
+  <%= @filter.price_high %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @filter.location %>
+</p>
+
+<p>
+  <strong>Subcategory:</strong>
+  <%= @filter.subcategory %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @filter.category %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @filter.area %>
+</p>
+
+<p>
+  <strong>Hits:</strong>
+  <%= @filter.listings.size %>
+</p>
+
+<%= link_to 'Edit', edit_filter_path(@filter) %> |
+<%= link_to 'Back', filters_path %>

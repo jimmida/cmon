@@ -1,0 +1,42 @@
+<h1>Listing filters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Keywords</th>
+      <th>Price Low</th>
+      <th>Price High</th>
+      <th>Location</th>
+      <th>Subcategory</th>
+      <th>Category</th>
+      <th>Area</th>
+      <th>Hits</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @filters.each do |filter| %>
+      <tr>
+        <td><%= filter.keywords %></td>
+        <td><%= filter.price_low %></td>
+        <td><%= filter.price_high %></td>
+        <td><%= filter.location %></td>
+        <td><%= filter.subcategory %></td>
+        <td><%= filter.category %></td>
+        <td><%= filter.area %></td>
+        <td><%= filter.listings.size %></td>
+        <td><%= link_to 'Show', filter %></td>
+        <td><%= link_to 'Hit List', filter_listings_path(filter) %></td>
+        <td><%= link_to 'Edit', edit_filter_path(filter) %></td>
+        <td><%= link_to 'Destroy', filter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Filter', new_filter_path %>

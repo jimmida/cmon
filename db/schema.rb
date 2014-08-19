@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140816061810) do
+ActiveRecord::Schema.define(version: 20140817044846) do
+
+  create_table "filters", force: true do |t|
+    t.string   "keywords"
+    t.decimal  "price_high"
+    t.decimal  "price_low"
+    t.string   "location"
+    t.string   "subcategory"
+    t.string   "category"
+    t.string   "area"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "hit_lists", force: true do |t|
+    t.integer  "listing_id"
+    t.integer  "filter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hit_lists", ["filter_id"], name: "index_hit_lists_on_filter_id"
+  add_index "hit_lists", ["listing_id"], name: "index_hit_lists_on_listing_id"
 
   create_table "listings", force: true do |t|
     t.string   "post_id"

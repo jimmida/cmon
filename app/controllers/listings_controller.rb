@@ -1,15 +1,25 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :get_filter
+
+  def get_filter
+    @filter = Filter.find(params[:filter_id]) if params[:filter_id]
+  end
 
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @listings = if @filter
+                  @filter.listings
+                else
+                  Listing.all
+                end
   end
 
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @listing = @filter.listings.find(params[:id]) if @filter
   end
 
   # GET /listings/new
