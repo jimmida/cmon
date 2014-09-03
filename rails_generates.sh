@@ -4,3 +4,7 @@ rails g migration add_url_to_listings url:string
 rails g scaffold Filter keywords:string price_low:decimal price_high:decimal location:string subcategory:string category:string area:string
 
 rails g scaffold HitList listing:references filter:belongs_to
+
+rails g scaffold User email:string password:digest avatar_url:string
+
+rails g controller Sessions new create destroy

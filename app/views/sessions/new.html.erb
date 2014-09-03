@@ -1,0 +1,12 @@
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<%= form_tag do %>
+  <%= text_field_tag :email, params[:email], placeholder: "email" %>
+  <%= password_field_tag :password, nil,  placeholder: "password" %>
+  <%= submit_tag "Log In" %>
+<% end %>
+
+<%= link_to "Register", new_user_path %>

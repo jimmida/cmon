@@ -10,5 +10,13 @@
 
 <%= yield %>
 
+<% if session[:user_id] %>
+  <ul>
+    <li><%= link_to 'Filters',  filters_path %></li>
+    <li><%= link_to 'Listings', listings_path %></li>
+  </ul>
+  <%= button_to 'Logout', logout_path, method: :delete %>
+<% end %>
+
 </body>
 </html>

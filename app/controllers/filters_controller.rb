@@ -25,10 +25,11 @@ class FiltersController < ApplicationController
   # POST /filters.json
   def create
     @filter = Filter.new(filter_params)
+    @filter.user_id = current_user.id
 
     respond_to do |format|
       if @filter.save
-        format.html { redirect_to @filter, notice: 'Filter was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Filter was successfully created.' }
         format.json { render action: 'show', status: :created, location: @filter }
       else
         format.html { render action: 'new' }
@@ -69,6 +70,6 @@ class FiltersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def filter_params
-      params.require(:filter).permit(:keywords, :price, :location, :subcategory, :category, :area)
+      params.require(:filter).permit(:keywords, :price_high, :price_low, :location, :subcategory, :category, :area)
     end
 end

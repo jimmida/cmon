@@ -1,5 +1,12 @@
 Cmon::Application.routes.draw do
-  resources :hit_lists
+
+  controller :sessions do
+    get    'login'  => :new
+    post   'login'  => :create
+    delete 'logout' => :destroy
+  end
+
+  resources :users
 
   resources :filters do
     resources :listings

@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Avatar url:</strong>
+  <%= @user.avatar_url %> <br />
+  <img class="avatar" src="<%= @user.avatar_url %>">
+</p>
+
+<p>
+  <strong>Filters Count:</strong>
+  <%= @user.filters.size %>
+</p>
+
+<% if @user.filters.size > 0 %>
+<p>
+  <strong>Filters:</strong>
+  <ul>
+  <% @user.filters.each do |filter| %>
+    <li><%= link_to filter.keywords, filter %> (<%= time_ago_in_words(filter.created_at) %> ago)</li>
+  <% end %>
+  </ul>
+</p>
+<% end %>
+
+<p>
+  <%= link_to 'New Filter', new_filter_path %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

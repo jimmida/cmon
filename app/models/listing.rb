@@ -17,9 +17,12 @@ class Listing < ActiveRecord::Base
   scope :title, -> (keyword) { where("title like ?", "%#{keyword}%")}
 
   class << self
+    # Tests: should not add hits if keywords is empty
     def apply(filter)
-      hits = Listing.active(true).title(filter.keywords)
-      filter.listings << hits
+      if not filter.keywords.empty?
+        hits = Listing.active(true).title(filter.keywords)
+        filter.listings << hits
+      end
     end
 
     def case_insensitive_title(keywords)
@@ -29,4 +32,5 @@ class Listing < ActiveRecord::Base
       end
     end
   end
+
 end
